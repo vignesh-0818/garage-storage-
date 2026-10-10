@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details — Garage & Storage Organization Service</title>
+  <meta name="description" content="In-depth specifications, load ratings, hardware details, and installation processes for our garage shelving, cabinetry, tool walls, and overhead storage.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg site-navbar" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
+          <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+          <button class="nav-util-btn theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="nav-util-btn rtl-toggle-btn" aria-label="Toggle Direction">
+            <span class="fw-bold" style="font-size:0.8rem">RTL</span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                <li><a class="dropdown-item" href="index-2.html">Home 2</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="nav-util-btn theme-toggle-btn d-none d-lg-inline-flex" title="Toggle Theme" aria-label="Toggle Theme">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="nav-util-btn rtl-toggle-btn d-none d-lg-inline-flex" title="Toggle Direction" aria-label="Toggle Direction">
+              <span class="fw-bold" style="font-size:0.8rem">RTL</span>
+            </button>
+            <a href="contact.html" class="btn btn-primary btn-sm">
+              <i class="fas fa-calendar-check"></i> Book Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       INNER HERO
+       ========================================================================== -->
+  <section class="inner-hero" style="background-image: url('assets/images/service-detail-hero.jpg');">
+    <div class="inner-hero-overlay"></div>
+    <div class="container">
+      <div class="inner-hero-content text-center">
+        <h1 class="inner-hero-title">Service Details</h1>
+        <div class="breadcrumb-wrap">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="services.html">Services</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-active">Service Details</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVICE DETAILS CONTENT & SIDEBAR
+       ========================================================================== -->
+  <section class="section-py bg-body-theme">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-4">
+          <div class="p-4 rounded border mb-4" style="background-color: var(--bg-surface); border-color: var(--border-color); border-radius: var(--radius-lg);">
+            <h5 class="mb-3">Select a Storage Service</h5>
+            <div class="d-flex flex-column">
+              <div class="service-nav-item active" data-service="shelving">
+                <span><i class="fas fa-layer-group me-2"></i> Custom Shelving</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="cabinets">
+                <span><i class="fas fa-door-closed me-2"></i> Storage Cabinets</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="workbench">
+                <span><i class="fas fa-hammer me-2"></i> Workbench Stations</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="tools">
+                <span><i class="fas fa-wrench me-2"></i> Wall Tool Storage</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="overhead">
+                <span><i class="fas fa-arrow-up me-2"></i> Overhead Ceiling Racks</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="sports">
+                <span><i class="fas fa-bicycle me-2"></i> Sports & Outdoor</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="seasonal">
+                <span><i class="fas fa-boxes-stacked me-2"></i> Seasonal Item Storage</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="complete">
+                <span><i class="fas fa-wand-magic-sparkles me-2"></i> Full Transformations</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="decluttering">
+                <span><i class="fas fa-box-open me-2"></i> Garage Decluttering</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+              <div class="service-nav-item" data-service="planning">
+                <span><i class="fas fa-compass-drafting me-2"></i> 3D Space Planning</span>
+                <i class="fas fa-chevron-right fa-xs"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Consultation Card -->
+          <div class="p-4 rounded border text-center" style="background-color: var(--primary-black); color:#FFFFFF; border-radius: var(--radius-lg);">
+            <i class="fas fa-headset fa-2x mb-3" style="color: #FFFFFF;"></i>
+            <h5 class="text-white mb-2">Need Custom Sizing?</h5>
+            <p class="small text-white-50 mb-3">Speak with our spatial planning team to get an exact 3D CAD proposal tailored to your garage.</p>
+            <a href="contact.html" class="btn btn-white btn-sm w-100">
+              <i class="fas fa-envelope me-1"></i> Request Quote
+            </a>
+          </div>
+        </div>
+
+        <!-- Main Dynamic Detail View -->
+        <div class="col-lg-8">
+          <div id="serviceDetailContainer">
+            <!-- Dynamic JavaScript Content populated from serviceDatabase in main.js -->
+            <div class="custom-card mb-4">
+              <div class="card-img-top-wrap" style="height: 380px;">
+                <img src="assets/images/service-detail-main.jpg" alt="Garage Storage System In Action" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="card-badge">Heavy-Duty Storage</span>
+              </div>
+              <div class="custom-card-body p-4 p-md-5">
+                <span class="badge-tag mb-3">Heavy-Duty Storage</span>
+                <h2 class="mb-3">Custom Garage Shelving Systems</h2>
+                <p class="lead mb-4">
+                  Our custom garage shelving systems are engineered to turn raw wall capacity into high-efficiency storage. Built using industrial powder-coated steel uprights and solid steel or heavy-duty timber deck inlays, each shelf can carry up to 800 lbs with zero deflection.
+                </p>
+
+                <h4 class="mt-4 mb-3">Key Solution Features & Engineering Specs</h4>
+                <ul class="list-unstyled mb-4">
+                  <li class="d-flex align-items-start gap-2 mb-2">
+                    <i class="fas fa-check-circle mt-1" style="color: var(--text-heading)"></i>
+                    <span>Adjustable shelf brackets with 1.5-inch vertical increments</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2 mb-2">
+                    <i class="fas fa-check-circle mt-1" style="color: var(--text-heading)"></i>
+                    <span>Continuous wall-track mounting distributes weight across studs</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2 mb-2">
+                    <i class="fas fa-check-circle mt-1" style="color: var(--text-heading)"></i>
+                    <span>Corrosion-resistant matte black powder coat finish</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2 mb-2">
+                    <i class="fas fa-check-circle mt-1" style="color: var(--text-heading)"></i>
+                    <span>Custom sizing tailored around outlets, doors, and vehicle clearances</span>
+                  </li>
+                </ul>
+
+                <div class="p-4 rounded border mt-4 text-center" style="background-color: var(--bg-surface); border-color: var(--border-color);">
+                  <h4 class="mb-2">Ready to implement this solution in your garage?</h4>
+                  <p class="mb-3 text-muted">Schedule a free space planning consultation with our storage specialists.</p>
+                  <a href="contact.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-calendar-check me-2"></i> Book a Consultation
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STEP BY STEP PROCESS
+       ========================================================================== -->
+  <section class="section-py bg-surface">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Installation Process</span>
+        <h2 class="section-title">From Measurement to Finished System</h2>
+        <p>A systematic workflow that guarantees clean, secure installations.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="p-4 rounded border h-100 text-center" style="background-color: var(--bg-card); border-color: var(--border-color);">
+            <span class="process-step-num mb-3" style="width: 44px; height: 44px; font-size: 1.1rem;">1</span>
+            <h5>Laser Stud Mapping</h5>
+            <p class="text-muted small mb-0">Electronic scanning to locate internal studs and structural headers.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-4 rounded border h-100 text-center" style="background-color: var(--bg-card); border-color: var(--border-color);">
+            <span class="process-step-num mb-3" style="width: 44px; height: 44px; font-size: 1.1rem;">2</span>
+            <h5>Horizontal Rail Fastening</h5>
+            <p class="text-muted small mb-0">Anchoring the primary load-bearing horizontal steel rail into every stud.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-4 rounded border h-100 text-center" style="background-color: var(--bg-card); border-color: var(--border-color);">
+            <span class="process-step-num mb-3" style="width: 44px; height: 44px; font-size: 1.1rem;">3</span>
+            <h5>Vertical Track Hang</h5>
+            <p class="text-muted small mb-0">Locking slotted uprights into position and fastening bottom stabilizer points.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-4 rounded border h-100 text-center" style="background-color: var(--bg-card); border-color: var(--border-color);">
+            <span class="process-step-num mb-3" style="width: 44px; height: 44px; font-size: 1.1rem;">4</span>
+            <h5>Shelf Decking & QA</h5>
+            <p class="text-muted small mb-0">Installing steel decks, safety lock clips, and verifying complete level.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand-title">
+            <img src="assets/images/favicon.svg" alt="GarageOrg" style="width: 32px; height: 32px;">
+            <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          </div>
+          <p class="footer-desc">
+            Specialists in residential garage optimization, heavy-duty modular shelving, steel cabinetry, slatwall tool storage, and overhead ceiling platforms.
+          </p>
+          <div class="d-flex gap-2">
+            <span class="badge-tag" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: #E7E5E4;">
+              <i class="fas fa-check me-1"></i> Precision Engineered
+            </span>
+            <span class="badge-tag" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: #E7E5E4;">
+              <i class="fas fa-shield me-1"></i> Heavy Duty
+            </span>
+          </div>
+          <!-- Follow Us Social Links -->
+          <div class="footer-social-wrap mt-3">
+            <span class="footer-social-title d-block mb-2 text-white fw-bold small text-uppercase" style="letter-spacing: 0.05em;">Follow Us</span>
+            <div class="d-flex gap-2">
+              <a href="https://instagram.com/garageorg" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GarageOrg on Instagram" title="Follow GarageOrg on Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com/garageorg" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GarageOrg on Facebook" title="Follow GarageOrg on Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://x.com/garageorg" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GarageOrg on X (formerly Twitter)" title="Follow GarageOrg on X">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="https://linkedin.com/company/garageorg" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GarageOrg on LinkedIn" title="Follow GarageOrg on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+            <li><a href="gallery.html"><i class="fas fa-chevron-right fa-xs"></i> Gallery</a></li>
+            <li><a href="pricing.html"><i class="fas fa-chevron-right fa-xs"></i> Pricing</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="service-details.html?service=shelving"><i class="fas fa-chevron-right fa-xs"></i> Custom Shelving</a></li>
+            <li><a href="service-details.html?service=cabinets"><i class="fas fa-chevron-right fa-xs"></i> Garage Cabinets</a></li>
+            <li><a href="service-details.html?service=workbench"><i class="fas fa-chevron-right fa-xs"></i> Workbench Stations</a></li>
+            <li><a href="service-details.html?service=tools"><i class="fas fa-chevron-right fa-xs"></i> Wall Tool Storage</a></li>
+            <li><a href="service-details.html?service=overhead"><i class="fas fa-chevron-right fa-xs"></i> Overhead Racks</a></li>
+            <li><a href="service-details.html?service=complete"><i class="fas fa-chevron-right fa-xs"></i> Full Transformations</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Consultation Hours</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Monday – Friday:</strong><br>
+              8:00 AM – 6:00 PM
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-calendar-day"></i>
+            <div>
+              <strong>Saturday:</strong><br>
+              9:00 AM – 4:00 PM
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-ban"></i>
+            <div>
+              <strong>Sunday:</strong> Closed
+            </div>
+          </div>
+          <div class="mt-3">
+            <a href="contact.html" class="btn btn-outline-light btn-sm w-100">
+              <i class="fas fa-envelope me-1"></i> Request Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+
+            <div class="footer-bottom">
+        <div>&copy; 2026 GarageOrg Storage Solutions. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="privacy-policy.html" style="color: var(--footer-muted);">Privacy Policy</a>
+          <a href="terms-of-service.html" style="color: var(--footer-muted);">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
