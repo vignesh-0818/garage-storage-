@@ -90,6 +90,11 @@ function updateRTLButtons(dir) {
       btn.setAttribute('title', 'Switch to Right-to-Left');
     }
   });
+
+  const telInputs = document.querySelectorAll('input[type="tel"]');
+  telInputs.forEach(input => {
+    input.setAttribute('dir', dir);
+  });
 }
 
 /* ==========================================================================

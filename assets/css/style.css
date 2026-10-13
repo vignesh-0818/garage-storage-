@@ -1765,6 +1765,46 @@ input:-ms-input-placeholder {
   border-color: #262626;
 }
 
+/* Select Styling & High-Contrast Chevron Dropdown Button */
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat !important;
+  background-size: 16px 12px !important;
+  background-position: right 1.15rem center !important;
+  padding-right: 2.85rem !important;
+  padding-left: 1.1rem !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23171717' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* Ensure Dropdown Options have Solid High-Contrast Visibility in Both Modes */
+.form-select option {
+  background-color: #FFFFFF;
+  color: #171717;
+  padding: 8px 12px;
+}
+
+[data-theme="dark"] .form-select option {
+  background-color: #212121;
+  color: #FFFFFF;
+}
+
+.form-select option:first-child,
+.form-select option[value=""] {
+  color: #78716C;
+}
+
+[data-theme="dark"] .form-select option:first-child,
+[data-theme="dark"] .form-select option[value=""] {
+  color: #F5F3F0;
+}
+
 /* Map Container Styling */
 .map-container {
   width: 100%;
@@ -2137,6 +2177,42 @@ input:-ms-input-placeholder {
 
 [dir="rtl"] .dropdown-menu {
   text-align: right;
+}
+
+/* RTL Form Inputs & Phone Number Placeholder Alignment (Desktop & Mobile) */
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select,
+[dir="rtl"] textarea.form-control,
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="text"],
+[dir="rtl"] input[type="email"] {
+  text-align: right !important;
+  direction: rtl;
+}
+
+[dir="rtl"] input[type="tel"]::placeholder,
+[dir="rtl"] input[type="tel"]::-webkit-input-placeholder,
+[dir="rtl"] input[type="tel"]::-moz-placeholder,
+[dir="rtl"] input[type="tel"]:-ms-input-placeholder,
+[dir="rtl"] #contactPhone::placeholder,
+[dir="rtl"] #contactPhone::-webkit-input-placeholder,
+[dir="rtl"] #contactPhone::-moz-placeholder,
+[dir="rtl"] #contactPhone:-ms-input-placeholder {
+  text-align: right !important;
+  direction: rtl;
+}
+
+/* RTL Primary Service Interest Dropdown Button (Flipped to Left with Ample Clearance) */
+[dir="rtl"] .form-select {
+  background-position: left 1.15rem center !important;
+  padding-left: 2.85rem !important;
+  padding-right: 1.1rem !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23171717' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+[data-theme="dark"][dir="rtl"] .form-select,
+[dir="rtl"][data-theme="dark"] .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
 }
 
 /* ==========================================================================
