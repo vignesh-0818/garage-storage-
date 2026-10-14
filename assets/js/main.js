@@ -212,6 +212,7 @@ const blogDatabase = {
     readTime: '5 min read',
     author: 'Space Planning Engineering Team',
     summary: 'Learn how to calculate wall stud spacing, avoid car door swing arcs, and maximize vertical storage capacity.',
+    heroImg: 'assets/images/blog-detail-hero.jpg',
     mainImg: 'assets/images/blog-1.jpg',
     keywords: ['shelving', 'rules', 'studs', 'brackets', 'doors', 'clearance', 'zones', 'totes', 'wall storage', 'steel shelving', 'weight limits', 'placement'],
     relatedIds: ['single-car-garage', 'slatwall-vs-pegboard', 'ceiling-storage-safety'],
@@ -297,6 +298,7 @@ const blogDatabase = {
     readTime: '4 min read',
     author: 'Residential Organization Specialist',
     summary: 'Smart strategies for tight single-car bays to store bicycles, bins, and ladders without blocking the driveway entrance.',
+    heroImg: 'assets/images/after-1.jpg',
     mainImg: 'assets/images/blog-2.jpg',
     keywords: ['single-car', 'single car', 'single car bay', 'vertical space', 'small garage', 'tight garage', 'bicycles', 'ladders', 'fold-down', 'clearance', 'decluttering'],
     relatedIds: ['shelving-rules', 'slatwall-vs-pegboard', 'garage-declutter-psychology'],
@@ -366,6 +368,7 @@ const blogDatabase = {
     readTime: '6 min read',
     author: 'Hardware & Material Testing Lab',
     summary: 'An engineering analysis comparing weight capacity, moisture resistance, locking hooks, and long-term durability.',
+    heroImg: 'assets/images/tool-organizer-slatwall.jpg',
     mainImg: 'assets/images/blog-3.jpg',
     keywords: ['slatwall', 'pegboard', 'tools', 'hooks', 'comparison', 'pvc slatwall', 'masonite', 'weight capacity', 'durability', 'tool organization', 'cam-lok'],
     relatedIds: ['shelving-rules', 'single-car-garage', 'ceiling-storage-safety'],
@@ -430,6 +433,7 @@ const blogDatabase = {
     readTime: '7 min read',
     author: 'Structural Installation Specialist',
     summary: 'A deep dive into ceiling joist spans, structural lag bolts, distributed loads, and vehicle clearance safety.',
+    heroImg: 'assets/images/home-feat-overhead.jpg',
     mainImg: 'assets/images/blog-4.jpg',
     keywords: ['ceiling', 'overhead', 'overhead storage', 'weight limits', 'joists', 'lag bolts', 'safety', 'anchoring', 'trusses', 'clearance', 'racks'],
     relatedIds: ['shelving-rules', 'seasonal-storage-rotation', 'single-car-garage'],
@@ -499,6 +503,7 @@ const blogDatabase = {
     readTime: '4 min read',
     author: 'Home Logistics & Efficiency Advisor',
     summary: 'How to organize labeled totes and slide-out bin racks to swap seasonal camping gear with snow equipment in under 30 minutes.',
+    heroImg: 'assets/images/residential-seasonal-storage.jpg',
     mainImg: 'assets/images/residential-seasonal-storage.jpg',
     keywords: ['seasonal', 'rotation', 'seasonal rotation', 'summer to winter', 'totes', 'bins', 'camping', 'snow', 'slide-out racks', 'labeling', 'indexing'],
     relatedIds: ['ceiling-storage-safety', 'shelving-rules', 'garage-declutter-psychology'],
@@ -563,6 +568,7 @@ const blogDatabase = {
     readTime: '5 min read',
     author: 'Spatial Wellness & Organization Consultant',
     summary: 'Overcome decision fatigue when sorting through years of accumulated boxes, tools, and unused household items.',
+    heroImg: 'assets/images/after-makeover-2car-garage.jpg',
     mainImg: 'assets/images/residential-garage-decluttering.jpg',
     keywords: ['decluttering', 'psychology', 'declutter', 'mindset', 'sorting', 'decision fatigue', 'order', 'reclaim order', '5 steps', 'decluttering tips'],
     relatedIds: ['single-car-garage', 'shelving-rules', 'seasonal-storage-rotation'],
@@ -800,8 +806,8 @@ function initBlogDetails() {
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', article.summary);
 
-    // Update breadcrumb
-    const breadcrumbActive = document.querySelector('.breadcrumb-active');
+    // Keep static hero banner consistent with 'Blog Details' and blog-detail-hero.jpg
+    const breadcrumbActive = document.querySelector('.inner-hero .breadcrumb-active');
     if (breadcrumbActive) breadcrumbActive.textContent = 'Blog Details';
 
     // Render main article container with exactly ONE main image
@@ -893,7 +899,7 @@ const serviceDatabase = {
   'cabinets': {
     title: 'Garage Cabinets & Lockable Storage Units',
     tag: 'Enclosed Organization',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/home-feat-cabinets.jpg',
     mainImg: 'assets/images/service-2-cabinets.jpg',
     desc: 'Keep power tools, hazardous chemicals, and detailing gear securely hidden away with custom-fitted steel garage cabinetry. Designed with soft-close European hinges, integrated lock cores, and full-extension bearing slides.',
     bullets: [
@@ -911,7 +917,7 @@ const serviceDatabase = {
   'workbench': {
     title: 'Custom Workbench & Utility Stations',
     tag: 'Craftsmanship & Utility',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/service-3-workbench.jpg',
     mainImg: 'assets/images/service-3-workbench.jpg',
     desc: 'A dedicated workspace tailored for DIY projects, home repairs, and precision work. Includes thick solid butcher block work surfaces, integrated power strips with USB ports, under-mount LED task lighting, and ball-bearing drawer banks.',
     bullets: [
@@ -929,7 +935,7 @@ const serviceDatabase = {
   'tools': {
     title: 'Wall-Mounted Slatwall & Tool Storage',
     tag: 'Precision Wall Grid',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/tool-organizer-slatwall.jpg',
     mainImg: 'assets/images/service-4-tools.jpg',
     desc: 'Reclaim your floor space by hanging garden tools, ladders, cords, and hand tools neatly on high-density PVC or aluminum slatwall panels. Modular hooks, baskets, and magnetic strips lock securely in place and reposition in seconds.',
     bullets: [
@@ -947,7 +953,7 @@ const serviceDatabase = {
   'overhead': {
     title: 'Overhead & Ceiling Storage Racks',
     tag: 'Vertical Ceiling Optimization',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/home-feat-overhead.jpg',
     mainImg: 'assets/images/service-5-overhead.jpg',
     desc: 'Unlock the massive unused storage zone above your garage door and overhead ceiling joists. Heavy-gauge ceiling platform racks safely support large plastic totes, holiday decor, luggage, and bulky seasonal gear up to 600 lbs.',
     bullets: [
@@ -965,7 +971,7 @@ const serviceDatabase = {
   'sports': {
     title: 'Sports & Outdoor Equipment Organization',
     tag: 'Active Lifestyle Storage',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/service-6-sports.jpg',
     mainImg: 'assets/images/service-6-sports.jpg',
     desc: 'Specialized wall rigs and vertical racks designed for bicycles, golf bags, skis, kayaks, skateboards, and ball bins. Keeps high-value athletic gear protected from damage and ready for your next adventure.',
     bullets: [
@@ -983,7 +989,7 @@ const serviceDatabase = {
   'seasonal': {
     title: 'Seasonal Item & Holiday Storage',
     tag: 'Organized Rotation',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/residential-seasonal-storage.jpg',
     mainImg: 'assets/images/service-7-seasonal.jpg',
     desc: 'Structured bin shelving, labeled color-coded tote systems, and dedicated zones for seasonal decorations, winter tires, patio furniture cushions, and camping supplies. Designed for quick semi-annual rotation.',
     bullets: [
@@ -1001,7 +1007,7 @@ const serviceDatabase = {
   'complete': {
     title: 'Complete Garage Transformations',
     tag: 'Full Turnkey Makeovers',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/after-makeover-2car-garage.jpg',
     mainImg: 'assets/images/service-8-complete.jpg',
     desc: 'Our signature whole-garage makeover service. We combine polyaspartic floor coating, full wall slatwall systems, custom cabinetry suites, overhead racks, and modern LED illumination into a showroom-quality living space.',
     bullets: [
@@ -1019,7 +1025,7 @@ const serviceDatabase = {
   'planning': {
     title: 'Garage Space Planning & 3D Layout Design',
     tag: 'Precision Engineering',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/about-mission.jpg',
     mainImg: 'assets/images/service-9-planning.jpg',
     desc: 'Professional architectural space planning to maximize every cubic inch of your garage. We measure your garage, scan for obstacles and clearance zones, and produce detailed 3D CAD layout models tailored to your vehicles and storage needs.',
     bullets: [
@@ -1037,7 +1043,7 @@ const serviceDatabase = {
   'decluttering': {
     title: 'Garage Decluttering & Space Recovery',
     tag: 'Systematic Organization',
-    heroImg: 'assets/images/service-detail-hero.jpg',
+    heroImg: 'assets/images/residential-garage-decluttering.jpg',
     mainImg: 'assets/images/residential-garage-decluttering.jpg',
     desc: 'Eliminate floor chaos, reclaim valuable parking square footage, and establish a permanent organizational framework. Our hands-on decluttering team sorts, purges, categorizes, and labels your entire garage inventory into dedicated functional zones.',
     bullets: [
@@ -1101,6 +1107,10 @@ function initServiceDetails() {
 
     // Update document title
     document.title = `${data.title} — GarageOrg Services`;
+
+    // Keep static hero banner consistent with 'Service Details' and service-detail-hero.jpg
+    const breadcrumbActive = document.querySelector('.inner-hero .breadcrumb-active');
+    if (breadcrumbActive) breadcrumbActive.textContent = 'Service Details';
 
     // Update active nav button
     serviceNavItems.forEach(item => {
