@@ -243,16 +243,38 @@ header.sticky-top,
   transition: all var(--transition-fast);
 }
 
-.site-navbar .nav-link:hover,
-.site-navbar .nav-link.active {
+.site-navbar .nav-link:hover {
   color: var(--text-heading) !important;
-  background-color: var(--bg-surface);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-[data-theme="dark"] .site-navbar .nav-link:hover,
-[data-theme="dark"] .site-navbar .nav-link.active {
-  background-color: var(--bg-elevated);
+.site-navbar .nav-link.active {
   color: #FFFFFF !important;
+  background-color: var(--primary-black) !important;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+}
+
+.site-navbar .nav-link.active:hover {
+  color: #FFFFFF !important;
+  background-color: var(--primary-black) !important;
+}
+
+[data-theme="dark"] .site-navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .site-navbar .nav-link.active {
+  background-color: #FFFFFF !important;
+  color: #101010 !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .site-navbar .nav-link.active:hover {
+  background-color: #FFFFFF !important;
+  color: #101010 !important;
 }
 
 /* Dropdown styling */
@@ -288,10 +310,10 @@ header.sticky-top,
 }
 
 .site-navbar .dropdown-item.active {
-  background-color: #E7E5E4;
-  color: #101010 !important;
+  background-color: var(--primary-black);
+  color: #FFFFFF !important;
   font-weight: 700;
-  border-left-color: #171717;
+  border-left-color: var(--warm-gray);
 }
 
 [dir="rtl"] .site-navbar .dropdown-item {
@@ -326,10 +348,10 @@ header.sticky-top,
 }
 
 [data-theme="dark"] .site-navbar .dropdown-item.active {
-  background-color: #333333;
-  color: #FFFFFF !important;
+  background-color: #FFFFFF;
+  color: #101010 !important;
   font-weight: 700;
-  border-left-color: #FFFFFF;
+  border-left-color: var(--warm-gray);
 }
 
 [dir="rtl"][data-theme="dark"] .site-navbar .dropdown-item.active {
@@ -1987,15 +2009,31 @@ input:-ms-input-placeholder {
   position: relative;
 }
 
+.footer-brand,
 .footer-brand-title {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 800;
-  color: #FFFFFF;
-  display: flex;
+  color: #FFFFFF !important;
+  display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.2rem;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-brand:hover,
+.footer-brand-title:hover {
+  opacity: 0.88;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.footer-brand span,
+.footer-brand-title span {
+  color: #FFFFFF;
 }
 
 .footer-desc {
