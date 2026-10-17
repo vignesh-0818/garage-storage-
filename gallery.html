@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Browse completed garage organization projects by GARAGEORG. High-capacity shelving, custom steel cabinets, modular tool walls, and ceiling storage platforms.">
+  <title>Project Gallery — GARAGEORG Storage Solutions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-page="gallery">
+
+  <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg site-navbar" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
+          <span>GARAGE<span class="brand-org">ORG</span></span>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+          <button class="nav-util-btn theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="nav-util-btn rtl-toggle-btn" aria-label="Toggle Direction">
+            <span class="fw-bold" style="font-size:0.8rem">RTL</span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html">Garage Storage Solutions</a></li>
+                <li><a class="dropdown-item" href="index-2.html">Garage Transformations</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="nav-util-btn theme-toggle-btn d-none d-lg-inline-flex" title="Toggle Theme"
+              aria-label="Toggle Theme">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="nav-util-btn rtl-toggle-btn d-none d-lg-inline-flex" title="Toggle Direction"
+              aria-label="Toggle Direction">
+              <span class="fw-bold" style="font-size:0.8rem">RTL</span>
+            </button>
+            <a href="contact.html" class="btn btn-primary btn-sm">
+              <i class="fas fa-calendar-check"></i> Book Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       INNER HERO
+       ========================================================================== -->
+  <section class="inner-hero" style="background-image: url('assets/images/gallery-hero.jpg');">
+    <div class="inner-hero-overlay"></div>
+    <div class="container">
+      <div class="inner-hero-content text-center">
+        <h1 class="inner-hero-title">Gallery</h1>
+        <p class="inner-hero-desc">
+          Explore garage transformations featuring organized storage, custom cabinets, tool walls, and efficient space planning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GALLERY FILTER & GRID SECTION
+       ========================================================================== -->
+  <section class="section-py bg-body-theme">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-subtitle">Real Installations</span>
+        <h2 class="section-title">Engineered Garage Transformations</h2>
+        <p class="text-muted mx-auto" style="max-width: 650px;">
+          Filter by category to view custom shelving, lockable cabinets, tool wall matrices, overhead platforms, and turnkey room makeovers.
+        </p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="gallery-filters text-center mb-5 d-flex flex-wrap justify-content-center gap-2">
+        <button class="gallery-filter-btn active" data-filter="all">All Projects</button>
+        <button class="gallery-filter-btn" data-filter="transformations">Garage Transformations</button>
+        <button class="gallery-filter-btn" data-filter="two-car">Two-Car Layouts</button>
+        <button class="gallery-filter-btn" data-filter="shelving">Custom Shelving</button>
+        <button class="gallery-filter-btn" data-filter="cabinets">Storage Cabinets</button>
+        <button class="gallery-filter-btn" data-filter="tools">Tool Walls</button>
+        <button class="gallery-filter-btn" data-filter="overhead">Overhead Racks</button>
+        <button class="gallery-filter-btn" data-filter="workbench">Workbenches</button>
+        <button class="gallery-filter-btn" data-filter="sports">Sports Storage</button>
+        <button class="gallery-filter-btn" data-filter="seasonal">Seasonal Storage</button>
+        <button class="gallery-filter-btn" data-filter="planning">Space Planning</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <!-- Item 1: Complete Garage Makeover -->
+        <div class="gallery-item" data-category="transformations">
+          <img src="assets/images/architectural-bay-transformation.jpg" alt="Complete garage makeover with custom cabinetry, LED hex ceiling lights, and polyaspartic floor">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Complete Garage Makeover</span>
+          </div>
+        </div>
+
+        <!-- Item 2: Two-Car Garage Layout -->
+        <div class="gallery-item" data-category="two-car transformations">
+          <img src="assets/images/service-8-complete.jpg" alt="Organized two-car garage with perimeter cabinetry, butcher-block workbench, and vehicle parking clearance">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Organized Two-Car Garage</span>
+          </div>
+        </div>
+
+        <!-- Item 3: Custom Shelving -->
+        <div class="gallery-item" data-category="shelving">
+          <img src="assets/images/service-1-shelving.jpg" alt="Heavy-duty garage shelving filled with organized storage bins and clear floor clearance">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Heavy-Duty Shelving System</span>
+          </div>
+        </div>
+
+        <!-- Item 4: Storage Cabinets -->
+        <div class="gallery-item" data-category="cabinets">
+          <img src="assets/images/service-2-cabinets.jpg" alt="Double-walled lockable steel garage cabinets, full-extension drawers, and tall wardrobes">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Custom Wall Cabinet Installation</span>
+          </div>
+        </div>
+
+        <!-- Item 5: Tool Wall Organization -->
+        <div class="gallery-item" data-category="tools">
+          <img src="assets/images/service-4-tools.jpg" alt="High-density slatwall tool wall with organized power tools, hand tools, and hardware bins">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Professional Tool Wall Setup</span>
+          </div>
+        </div>
+
+        <!-- Item 6: Overhead Storage Racks -->
+        <div class="gallery-item" data-category="overhead">
+          <img src="assets/images/service-5-overhead.jpg" alt="Ceiling-mounted heavy-duty garage racks holding seasonal storage boxes above garage doors">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Overhead Ceiling Storage</span>
+          </div>
+        </div>
+
+        <!-- Item 7: Workbench Organization -->
+        <div class="gallery-item" data-category="workbench">
+          <img src="assets/images/service-3-workbench.jpg" alt="Solid butcher-block garage workbench with ball-bearing drawers and pegboard tool storage">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Organized Garage Workbench</span>
+          </div>
+        </div>
+
+        <!-- Item 8: Sports Equipment Storage -->
+        <div class="gallery-item" data-category="sports">
+          <img src="assets/images/service-6-sports.jpg" alt="Garage sports equipment storage with vertical bicycle mounts, ski racks, golf bags, and ball corral">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Sports Equipment Storage</span>
+          </div>
+        </div>
+
+        <!-- Item 9: Seasonal Storage -->
+        <div class="gallery-item" data-category="seasonal">
+          <img src="assets/images/service-7-seasonal.jpg" alt="Clearly labeled storage bins on heavy-duty shelving for seasonal decorations and camping gear">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Seasonal & Bin Storage</span>
+          </div>
+        </div>
+
+        <!-- Item 10: Space Planning -->
+        <div class="gallery-item" data-category="planning">
+          <img src="assets/images/service-9-planning.jpg" alt="Architectural garage floor plans, storage layout blueprints, and 3D CAD visualization">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Garage Space Planning</span>
+          </div>
+        </div>
+
+        <!-- Item 11: Modular Storage Locker Suite -->
+        <div class="gallery-item" data-category="cabinets">
+          <img src="assets/images/home-feat-cabinets.jpg" alt="Modular garage storage cabinets with locking doors and organized automotive supplies">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Modular Storage Cabinet Suite</span>
+          </div>
+        </div>
+
+        <!-- Item 12: Architectural 2-Car Bay Transformation -->
+        <div class="gallery-item" data-category="two-car transformations">
+          <img src="assets/images/after-makeover-2car-garage.jpg" alt="Showroom-grade two-car garage transformation with wall-mounted storage and clear parking bay">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Architectural Bay Transformation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CLOSING CALL-TO-ACTION
+       ========================================================================== -->
+  <section class="section-py bg-dark-accent text-center">
+    <div class="container">
+      <div class="mx-auto" style="max-width: 720px;">
+        <span class="badge-tag mb-3" style="background: rgba(255,255,255,0.1); color: #FFF; border-color: rgba(255,255,255,0.2);">
+          Transform Your Garage
+        </span>
+        <h2 class="mb-3 text-white">Inspired by These Installations?</h2>
+        <p class="lead mb-4" style="color: #D6D3D1;">
+          Let’s create a tailored layout for your garage dimensions. Request an on-site space audit or speak with our space planning engineers.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-calendar-check"></i> Book a Consultation
+          </a>
+          <a href="services.html" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-th-large"></i> Explore Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Col 1: Brand & Overview -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <a class="footer-brand" href="index.html" aria-label="GarageOrg Home">
+            <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
+            <span>GARAGE<span class="brand-org">ORG</span></span>
+          </a>
+          <p class="footer-desc">
+            Specialists in residential garage space optimization, custom heavy-duty steel shelving, modular cabinetry,
+            slatwall tool organization, and ceiling storage racks.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge-tag"
+              style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: #E7E5E4;">
+              <i class="fas fa-check-circle me-1"></i> Stud-Mounted
+            </span>
+            <span class="badge-tag"
+              style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: #E7E5E4;">
+              <i class="fas fa-shield me-1"></i> Heavy Duty
+            </span>
+          </div>
+          <!-- Follow Us Social Links -->
+          <div class="footer-social-wrap mt-3">
+            <span class="footer-social-title d-block mb-2 text-white fw-bold small text-uppercase"
+              style="letter-spacing: 0.05em;">Follow Us</span>
+            <div class="d-flex gap-2">
+              <a href="https://instagram.com/garageorg" class="footer-social-link" target="_blank"
+                rel="noopener noreferrer" aria-label="GarageOrg on Instagram" title="Follow GarageOrg on Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com/garageorg" class="footer-social-link" target="_blank"
+                rel="noopener noreferrer" aria-label="GarageOrg on Facebook" title="Follow GarageOrg on Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://x.com/garageorg" class="footer-social-link" target="_blank" rel="noopener noreferrer"
+                aria-label="GarageOrg on X (formerly Twitter)" title="Follow GarageOrg on X">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="https://linkedin.com/company/garageorg" class="footer-social-link" target="_blank"
+                rel="noopener noreferrer" aria-label="GarageOrg on LinkedIn" title="Follow GarageOrg on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+            <li><a href="gallery.html"><i class="fas fa-chevron-right fa-xs"></i> Gallery</a></li>
+            <li><a href="pricing.html"><i class="fas fa-chevron-right fa-xs"></i> Pricing</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="service-details.html?service=shelving"><i class="fas fa-chevron-right fa-xs"></i> Custom
+                Shelving</a></li>
+            <li><a href="service-details.html?service=cabinets"><i class="fas fa-chevron-right fa-xs"></i> Garage
+                Cabinets</a></li>
+            <li><a href="service-details.html?service=workbench"><i class="fas fa-chevron-right fa-xs"></i> Workbench
+                Stations</a></li>
+            <li><a href="service-details.html?service=tools"><i class="fas fa-chevron-right fa-xs"></i> Wall Tool
+                Storage</a></li>
+            <li><a href="service-details.html?service=overhead"><i class="fas fa-chevron-right fa-xs"></i> Overhead
+                Racks</a></li>
+            <li><a href="service-details.html?service=complete"><i class="fas fa-chevron-right fa-xs"></i> Full
+                Transformations</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Service Hours & Consultation -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Consultation Hours</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Monday – Friday:</strong><br>
+              8:00 AM – 6:00 PM
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-calendar-day"></i>
+            <div>
+              <strong>Saturday:</strong><br>
+              9:00 AM – 4:00 PM
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-ban"></i>
+            <div>
+              <strong>Sunday:</strong> Closed
+            </div>
+          </div>
+          <div class="mt-3">
+            <a href="contact.html" class="btn btn-outline-light btn-sm w-100">
+              <i class="fas fa-envelope me-1"></i> Request Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 GarageOrg Storage Solutions. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="privacy-policy.html" style="color: var(--footer-muted);">Privacy Policy</a>
+          <a href="terms-of-service.html" style="color: var(--footer-muted);">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

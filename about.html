@@ -14,7 +14,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-page="about">
 
   <!-- ==========================================================================
        NAVBAR
@@ -24,7 +24,7 @@
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
-          <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          <span>GARAGE<span class="brand-org">ORG</span></span>
         </a>
 
         <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -46,12 +46,13 @@
                 Home
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
-                <li><a class="dropdown-item" href="index-2.html">Home 2</a></li>
+                <li><a class="dropdown-item" href="index.html">Garage Storage Solutions</a></li>
+                <li><a class="dropdown-item" href="index-2.html">Garage Transformations</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -81,11 +82,9 @@
     <div class="container">
       <div class="inner-hero-content text-center">
         <h1 class="inner-hero-title">About Us</h1>
-        <div class="breadcrumb-wrap">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-active">About Us</span>
-        </div>
+        <p class="inner-hero-desc">
+          We create practical, well-planned garage storage systems that improve organization, accessibility, and everyday use of your space.
+        </p>
       </div>
     </div>
   </section>
@@ -105,18 +104,18 @@
           <span class="section-subtitle">Our Purpose</span>
           <h2 class="section-title">Mission & Vision for Modern Garages</h2>
           <p class="lead">
-            We believe that an organized garage enhances how a home functions every day.
+            We believe that an organized garage enhances how an entire home functions every day. Our approach centers on structural engineering, tailored spatial layouts, and industrial-grade storage solutions.
           </p>
           <div class="mb-4">
-            <h5><i class="fas fa-bullseye me-2" style="color: var(--text-heading)"></i> Our Mission</h5>
+            <h5><i class="fas fa-bullseye me-2" style="color: var(--brand-accent)"></i> Our Mission</h5>
             <p>
-              To provide homeowners with durable, precision-installed garage storage systems that clear floor clutter, safeguard valuable gear, and provide effortless access to everyday items.
+              To provide homeowners with durable, precision-installed garage storage systems that clear floor clutter, safeguard valuable gear, and provide effortless access to everyday items. We replace makeshift shelving with purpose-built systems rated for real daily loads.
             </p>
           </div>
           <div>
-            <h5><i class="fas fa-eye me-2" style="color: var(--text-heading)"></i> Our Vision</h5>
+            <h5><i class="fas fa-eye me-2" style="color: var(--brand-accent)"></i> Our Space Planning Philosophy</h5>
             <p class="mb-0">
-              To be the benchmark for architectural garage organization by combining structural engineering principles with modular, adaptable hardware that lasts for decades.
+              Every garage has three distinct spatial dimensions: floor zones for secure vehicle clearance, perimeter wall zones for tool and gear accessibility, and overhead joist zones for seasonal and bulky equipment. By zoning these spaces thoughtfully, we unlock maximum utility without compromising aesthetics.
             </p>
           </div>
         </div>
@@ -235,29 +234,130 @@
       <div class="section-header text-center">
         <span class="section-subtitle">Real Impact</span>
         <h2 class="section-title">The Benefits of Professional Organization</h2>
-        <p>Why engineered storage solutions outperform temporary fixes.</p>
+        <p>Engineered storage solutions that transform day-to-day usability and safeguard your belongings.</p>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="p-4 rounded border h-100" style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <i class="fas fa-car mb-3" style="font-size: 2rem; color: var(--text-heading);"></i>
-            <h4>Park Vehicles Safely</h4>
-            <p class="text-muted mb-0">Clear the floor completely so you can park your cars inside and open all doors without bumping boxes or bikes.</p>
+        <!-- Benefit Card 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border overflow-hidden" style="background-color: var(--bg-card); border-color: var(--border-color); border-radius: var(--radius-md);">
+            <div style="height: 190px; overflow: hidden;">
+              <img src="assets/images/after-1.jpg" alt="Safe and accessible vehicle parking in organized garage" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-car" style="font-size: 1.25rem; color: var(--brand-accent);"></i>
+                <h4 class="h5 mb-0">Safe Vehicle Parking</h4>
+              </div>
+              <p class="text-muted small mb-0 flex-grow-1">
+                Clear the floor completely so you can park your cars inside every evening and open all doors comfortably without bumping into bikes, boxes, or lawn care tools.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="p-4 rounded border h-100" style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <i class="fas fa-search mb-3" style="font-size: 2rem; color: var(--text-heading);"></i>
-            <h4>Find Items in Seconds</h4>
-            <p class="text-muted mb-0">Stop searching through unlabeled stacks. Dedicated zones ensure everything has a visible, designated location.</p>
+
+        <!-- Benefit Card 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border overflow-hidden" style="background-color: var(--bg-card); border-color: var(--border-color); border-radius: var(--radius-md);">
+            <div style="height: 190px; overflow: hidden;">
+              <img src="assets/images/service-4-tools.jpg" alt="Easy access to frequently used tools and belongings" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-tools" style="font-size: 1.25rem; color: var(--brand-accent);"></i>
+                <h4 class="h5 mb-0">Rapid Tool Access</h4>
+              </div>
+              <p class="text-muted small mb-0 flex-grow-1">
+                Keep daily maintenance equipment, power tools, and household hardware in visible, reachable positions with modular slatwall tracks and heavy-duty locking hooks.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="p-4 rounded border h-100" style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <i class="fas fa-arrow-trend-up mb-3" style="font-size: 2rem; color: var(--text-heading);"></i>
-            <h4>Increase Usable Home Value</h4>
-            <p class="text-muted mb-0">A finished, well-organized garage adds valuable usable square footage to your home for hobbies and storage.</p>
+
+        <!-- Benefit Card 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border overflow-hidden" style="background-color: var(--bg-card); border-color: var(--border-color); border-radius: var(--radius-md);">
+            <div style="height: 190px; overflow: hidden;">
+              <img src="assets/images/home-feat-overhead.jpg" alt="Better use of available wall and overhead space" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-arrow-up-from-bracket" style="font-size: 1.25rem; color: var(--brand-accent);"></i>
+                <h4 class="h5 mb-0">Wall & Ceiling Use</h4>
+              </div>
+              <p class="text-muted small mb-0 flex-grow-1">
+                Maximize unutilized vertical air space with overhead steel platform racks rated up to 1,000 lbs, freeing hundreds of square feet of valuable floor area below.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefit Card 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border overflow-hidden" style="background-color: var(--bg-card); border-color: var(--border-color); border-radius: var(--radius-md);">
+            <div style="height: 190px; overflow: hidden;">
+              <img src="assets/images/residential-seasonal-storage.jpg" alt="Organized storage for seasonal items and equipment" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-boxes-stacked" style="font-size: 1.25rem; color: var(--brand-accent);"></i>
+                <h4 class="h5 mb-0">Seasonal Storage</h4>
+              </div>
+              <p class="text-muted small mb-0 flex-grow-1">
+                Safely stow holiday decorations, camping equipment, and sports gear in labeled, waterproof totes on dedicated industrial shelving units that stay neat all year.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PRECISION ENGINEERING & SAFETY STANDARDS
+       ========================================================================== -->
+  <section class="section-py bg-body-theme">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--card-hover-shadow);">
+            <img src="assets/images/about-craftsmanship.jpg" alt="Installation specialist using precision red-beam laser level to anchor garage wall tracks directly into studs" class="w-100" style="height: 440px; object-fit: cover;">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="section-subtitle">Structural Standards</span>
+          <h2 class="section-title">Precision Engineering & Rigorous Safety Tolerances</h2>
+          <p class="lead">
+            Garage organization is more than aesthetics—it requires uncompromising structural anchoring, certified weight ratings, and safe everyday ergonomics.
+          </p>
+          <div class="d-flex flex-column gap-3 mt-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="icon-box-icon flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem; margin: 0; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                <i class="fas fa-crosshairs"></i>
+              </div>
+              <div>
+                <h5 class="mb-1">Laser-Verified Stud Mapping</h5>
+                <p class="text-muted small mb-0">Every wall track and vertical upright is anchored directly into structural wood or metal wall studs using heavy-duty structural lag fasteners, eliminating pull-out risk.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <div class="icon-box-icon flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem; margin: 0; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <div>
+                <h5 class="mb-1">Certified Dynamic & Static Load Ratings</h5>
+                <p class="text-muted small mb-0">Our heavy-duty steel shelving is tested to support up to 800 lbs per tier with zero deflection, while ceiling racks hold up to 600 lbs of distributed seasonal storage safely.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <div class="icon-box-icon flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem; margin: 0; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                <i class="fas fa-arrows-to-circle"></i>
+              </div>
+              <div>
+                <h5 class="mb-1">Clear Vehicle Clearance & Door Swing Zones</h5>
+                <p class="text-muted small mb-0">We calibrate shelf depths and ceiling drops around actual vehicle dimensions, door arcs, and liftgates to safeguard against accidental vehicle contact or scratches.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -278,7 +378,7 @@
           Explore our complete service offerings or contact our team to discuss your project requirements.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="contact.html" class="btn btn-white btn-lg">
+          <a href="contact.html" class="btn btn-primary btn-lg">
             <i class="fas fa-calendar-check"></i> Book a Consultation
           </a>
           <a href="services.html" class="btn btn-outline-light btn-lg">
@@ -296,9 +396,9 @@
     <div class="container">
       <div class="row g-4 g-lg-5">
         <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="footer-brand-title" aria-label="GarageOrg Home">
-            <img src="assets/images/favicon.svg" alt="GarageOrg" style="width: 32px; height: 32px;">
-            <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          <a class="footer-brand" href="index.html" aria-label="GarageOrg Home">
+            <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
+            <span>GARAGE<span class="brand-org">ORG</span></span>
           </a>
           <p class="footer-desc">
             Specialists in residential garage optimization, heavy-duty modular shelving, steel cabinetry, slatwall tool storage, and overhead ceiling platforms.
@@ -337,6 +437,7 @@
             <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
             <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
             <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+            <li><a href="gallery.html"><i class="fas fa-chevron-right fa-xs"></i> Gallery</a></li>
             <li><a href="pricing.html"><i class="fas fa-chevron-right fa-xs"></i> Pricing</a></li>
             <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
             <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>

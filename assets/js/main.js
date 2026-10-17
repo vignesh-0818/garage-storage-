@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initTheme() {
   const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  const urlParams = new URLSearchParams(window.location.search);
+  const themeParam = urlParams.get('theme');
+  if (themeParam === 'dark' || themeParam === 'light') {
+    localStorage.setItem('garage_theme', themeParam);
+  }
   const currentTheme = localStorage.getItem('garage_theme') || 'light';
 
   document.documentElement.setAttribute('data-theme', currentTheme);
@@ -57,10 +62,15 @@ function updateThemeIcons(theme) {
 }
 
 /* ==========================================================================
-   2. RTL / LTR DIRECTION TOGGLE
+   2. RTL / LTR DIRECTION TOGGLE (LAYOUT DIRECTION ONLY - ALL TEXT REMAINS ENGLISH)
    ========================================================================== */
 function initDirection() {
   const rtlToggleBtns = document.querySelectorAll('.rtl-toggle-btn');
+  const urlParams = new URLSearchParams(window.location.search);
+  const dirParam = urlParams.get('dir');
+  if (dirParam === 'rtl' || dirParam === 'ltr') {
+    localStorage.setItem('garage_dir', dirParam);
+  }
   const currentDir = localStorage.getItem('garage_dir') || 'ltr';
 
   document.documentElement.setAttribute('dir', currentDir);
@@ -98,12 +108,11 @@ function updateRTLButtons(dir) {
 }
 
 /* ==========================================================================
-   3. GALLERY FILTERING & LIGHTBOX MODAL
+   3. GALLERY FILTERING (SHOWING PROJECT NAMES ON HOVER, ZERO CLICK POPUPS)
    ========================================================================== */
 function initGallery() {
   const filterBtns = document.querySelectorAll('.gallery-filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('galleryLightbox');
   
   if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
@@ -114,86 +123,15 @@ function initGallery() {
         const filterValue = btn.getAttribute('data-filter');
 
         galleryItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filterValue === 'all' || category === filterValue) {
+          const category = item.getAttribute('data-category') || '';
+          const categoryList = category.split(/\s+/);
+          if (filterValue === 'all' || category === filterValue || categoryList.includes(filterValue)) {
             item.style.display = 'block';
           } else {
             item.style.display = 'none';
           }
         });
       });
-    });
-  }
-
-  // Lightbox functionality
-  if (lightbox) {
-    const lightboxImg = lightbox.querySelector('img');
-    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    const prevBtn = lightbox.querySelector('.lightbox-prev');
-    const nextBtn = lightbox.querySelector('.lightbox-next');
-
-    let currentImages = [];
-    let currentIndex = 0;
-
-    function openLightbox(index) {
-      currentImages = Array.from(document.querySelectorAll('.gallery-item'))
-        .filter(item => item.style.display !== 'none');
-      
-      if (currentImages.length === 0) return;
-      
-      currentIndex = index;
-      const targetItem = currentImages[currentIndex];
-      const img = targetItem.querySelector('img');
-      const title = targetItem.querySelector('.gallery-item-title')?.textContent || '';
-      const cat = targetItem.querySelector('.gallery-item-cat')?.textContent || '';
-
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = title ? `${title} (${cat})` : img.alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function showNext() {
-      if (currentImages.length <= 1) return;
-      currentIndex = (currentIndex + 1) % currentImages.length;
-      openLightbox(currentIndex);
-    }
-
-    function showPrev() {
-      if (currentImages.length <= 1) return;
-      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-      openLightbox(currentIndex);
-    }
-
-    galleryItems.forEach((item, idx) => {
-      item.addEventListener('click', () => {
-        const visibleIndex = Array.from(document.querySelectorAll('.gallery-item'))
-          .filter(el => el.style.display !== 'none')
-          .indexOf(item);
-        openLightbox(visibleIndex >= 0 ? visibleIndex : 0);
-      });
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (nextBtn) nextBtn.addEventListener('click', showNext);
-    if (prevBtn) prevBtn.addEventListener('click', showPrev);
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
     });
   }
 }
@@ -809,6 +747,10 @@ function initBlogDetails() {
     // Keep static hero banner consistent with 'Blog Details' and blog-detail-hero.jpg
     const breadcrumbActive = document.querySelector('.inner-hero .breadcrumb-active');
     if (breadcrumbActive) breadcrumbActive.textContent = 'Blog Details';
+    const heroDesc = document.querySelector('.inner-hero .inner-hero-desc');
+    if (heroDesc && article.summary) {
+      heroDesc.textContent = article.summary;
+    }
 
     // Render main article container with exactly ONE main image
     container.innerHTML = `
@@ -1057,6 +999,60 @@ const serviceDatabase = {
       { icon: 'fa-trash-can', title: 'Purge & Donation', text: 'Systematic sorting to identify donation items, recyclables, and unwanted clutter.' },
       { icon: 'fa-tags', title: 'Smart Labeling', text: 'Find any tool or seasonal container in under 30 seconds with clean bin indexing.' }
     ]
+  },
+  'flooring': {
+    title: 'Polyaspartic Floor Coating Systems',
+    tag: 'Commercial Floor Finishing',
+    heroImg: 'assets/images/service-10-flooring.jpg',
+    mainImg: 'assets/images/service-10-flooring.jpg',
+    desc: 'Commercial-grade 4-layer polyaspartic and epoxy flake finishes engineered for extreme durability, chemical resistance, and showroom aesthetics. 4x stronger than standard DIY epoxy with rapid 1-day cure times and industrial UV resistance.',
+    bullets: [
+      'Multi-pass diamond grind concrete profiling ensuring optimal substrate adhesion',
+      '100% solids polyaspartic topcoat impervious to motor oil, road salt, and brake fluid',
+      'Slip-resistant textured vinyl flake matrix for secure traction in all weather conditions',
+      'Zero hot-tire pickup rating backed by industrial chemical cure chemistry'
+    ],
+    features: [
+      { icon: 'fa-brush', title: 'Industrial Chemistry', text: '4x more tensile strength than standard store-bought DIY epoxy systems.' },
+      { icon: 'fa-clock', title: '1-Day Fast Cure', text: 'Walk on it in 6 hours; return vehicles to the garage within 24 hours.' },
+      { icon: 'fa-droplet-slash', title: 'Stain & Salt Proof', text: 'Seamless non-porous finish wipes clean with simple water and mild soap.' }
+    ]
+  },
+  'motorized': {
+    title: 'Motorized Ceiling Storage Lifts',
+    tag: 'Electric Overhead Platform',
+    heroImg: 'assets/images/service-11-motorized.jpg',
+    mainImg: 'assets/images/service-11-motorized.jpg',
+    desc: 'Heavy-duty electric motorized platforms that lower to floor level with a wall switch or smartphone app, eliminating ladder climbing entirely. Supports up to 600 lbs of heavy cargo safely and stores it securely above vehicle rooflines.',
+    bullets: [
+      'Precision high-torque electric motor hoist wired with integrated safety brakes',
+      'Aircraft-grade braided steel cables with redundant multi-point ceiling anchoring',
+      'Adjustable auto-stop limit switches calibrated to your exact ceiling and floor heights',
+      'Effortless push-button or smartphone app lowering for kayaks, rooftop boxes, and bins'
+    ],
+    features: [
+      { icon: 'fa-gear', title: 'Electric Push-Button', text: 'Lower heavy bins and bulky gear directly to waist height without ladders.' },
+      { icon: 'fa-shield-halved', title: 'Mechanical Locks', text: 'Automatic safety catch system prevents accidental drop or cable slippage.' },
+      { icon: 'fa-car-side', title: 'Safe SUV Clearance', text: 'Stores flush to ceiling joists leaving full height for tall vehicles below.' }
+    ]
+  },
+  'garden': {
+    title: 'Lawn & Garden Tool Stations',
+    tag: 'Outdoor Equipment Wall Matrix',
+    heroImg: 'assets/images/service-12-garden.jpg',
+    mainImg: 'assets/images/service-12-garden.jpg',
+    desc: 'Dedicated wall-track and heavy-duty slatwall systems specifically configured to organize string trimmers, blowers, shovels, hoses, and mowers off the floor with specialized non-scratch brackets and modular accessories.',
+    bullets: [
+      'Industrial powder-coated vertical track and slatwall panels rated for 75 lbs per linear foot',
+      'Rubberized double-cradle hooks specifically molded for trimmers, edgers, and blowers',
+      'Heavy-duty wall-mounted auto-rewind garden hose and extension cord reels',
+      'Clear floor zone parking bays calibrated for walk-behind mowers and wheelbarrows'
+    ],
+    features: [
+      { icon: 'fa-seedling', title: 'Yard Gear Dedicated', text: 'Keep messy lawn equipment off concrete floors and safely accessible.' },
+      { icon: 'fa-wrench', title: 'Tool-Specific Hooks', text: 'Cradles long handles, electric powerheads, and leaf blowers securely.' },
+      { icon: 'fa-recycle', title: 'Easy Maintenance', text: 'Waterproof PVC slatwall cleans easily after muddy lawn care sessions.' }
+    ]
   }
 };
 
@@ -1077,14 +1073,22 @@ const serviceAliases = {
   'garage-decluttering': 'decluttering',
   'space-planning': 'planning',
   'full-transformation': 'complete',
-  'transformations': 'complete'
+  'transformations': 'complete',
+  'polyaspartic': 'flooring',
+  'floor-coating': 'flooring',
+  'floors': 'flooring',
+  'epoxy': 'flooring',
+  'ceiling-lift': 'motorized',
+  'motorized-lift': 'motorized',
+  'hoist': 'motorized',
+  'garden-tools': 'garden',
+  'lawn-care': 'garden',
+  'yard-tools': 'garden'
 };
 
 function initServiceDetails() {
   const serviceDetailContainer = document.getElementById('serviceDetailContainer');
   const serviceNavItems = document.querySelectorAll('.service-nav-item');
-
-  if (!serviceDetailContainer) return;
 
   function resolveServiceKey(rawKey) {
     if (!rawKey) return 'shelving';
@@ -1098,11 +1102,29 @@ function initServiceDetails() {
 
   function getServiceFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
-    return resolveServiceKey(urlParams.get('service'));
+    const paramKey = urlParams.get('service');
+    if (paramKey) return resolveServiceKey(paramKey);
+    const hashKey = window.location.hash ? window.location.hash.replace('#', '') : null;
+    if (hashKey) return resolveServiceKey(hashKey);
+    return null;
   }
 
-  function renderService(key) {
-    const canonicalKey = resolveServiceKey(key);
+  // Handle services.html direct card anchor/parameter navigation
+  if (!serviceDetailContainer) {
+    const requestedService = getServiceFromUrl();
+    if (requestedService) {
+      const targetCard = document.getElementById(`service-${requestedService}`) || document.getElementById(requestedService);
+      if (targetCard) {
+        setTimeout(() => {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 150);
+      }
+    }
+    return;
+  }
+
+  function renderService(key, shouldScroll = false) {
+    const canonicalKey = resolveServiceKey(key || 'shelving');
     const data = serviceDatabase[canonicalKey] || serviceDatabase['shelving'];
 
     // Update document title
@@ -1111,20 +1133,27 @@ function initServiceDetails() {
     // Keep static hero banner consistent with 'Service Details' and service-detail-hero.jpg
     const breadcrumbActive = document.querySelector('.inner-hero .breadcrumb-active');
     if (breadcrumbActive) breadcrumbActive.textContent = 'Service Details';
+    const heroDesc = document.querySelector('.inner-hero .inner-hero-desc');
+    if (heroDesc && data) {
+      heroDesc.textContent = `Explore structural load ratings, materials, and custom installation layouts for ${data.title.toLowerCase()}.`;
+    }
 
-    // Update active nav button
+    // Update active nav button and accessibility attributes
     serviceNavItems.forEach(item => {
       const itemKey = resolveServiceKey(item.getAttribute('data-service'));
-      if (itemKey === canonicalKey) {
+      const isMatch = (itemKey === canonicalKey);
+      if (isMatch) {
         item.classList.add('active');
+        item.setAttribute('aria-selected', 'true');
       } else {
         item.classList.remove('active');
+        item.setAttribute('aria-selected', 'false');
       }
     });
 
     // Render detail content
     serviceDetailContainer.innerHTML = `
-      <div class="custom-card mb-4">
+      <div class="custom-card mb-4" id="activeServiceDetailCard">
         <div class="card-img-top-wrap" style="height: 380px;">
           <img src="${data.mainImg}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;">
           <span class="card-badge">${data.tag}</span>
@@ -1138,7 +1167,7 @@ function initServiceDetails() {
           <ul class="list-unstyled mb-4">
             ${data.bullets.map(b => `
               <li class="d-flex align-items-start gap-2 mb-2">
-                <i class="fas fa-check-circle mt-1" style="color: var(--text-heading)"></i>
+                <i class="fas fa-check-circle mt-1" style="color: var(--brand-accent)"></i>
                 <span>${b}</span>
               </li>
             `).join('')}
@@ -1147,8 +1176,8 @@ function initServiceDetails() {
           <div class="row g-3 my-4">
             ${data.features.map(f => `
               <div class="col-md-4">
-                <div class="p-3 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color);">
-                  <i class="fas ${f.icon} mb-2" style="font-size: 1.4rem; color: var(--text-heading)"></i>
+                <div class="p-3 rounded border h-100" style="background-color: var(--bg-surface); border-color: var(--border-color);">
+                  <i class="fas ${f.icon} mb-2" style="font-size: 1.4rem; color: var(--brand-accent)"></i>
                   <h5 class="h6 mb-1">${f.title}</h5>
                   <p class="small mb-0 text-muted">${f.text}</p>
                 </div>
@@ -1159,35 +1188,59 @@ function initServiceDetails() {
           <div class="p-4 rounded border mt-4 text-center" style="background-color: var(--bg-surface); border-color: var(--border-color);">
             <h4 class="mb-2">Ready to implement this solution in your garage?</h4>
             <p class="mb-3 text-muted">Schedule a free space planning consultation with our storage specialists.</p>
-            <a href="contact.html" class="btn btn-primary btn-lg">
+            <a href="contact.html?service=${encodeURIComponent(canonicalKey)}" class="btn btn-primary btn-lg">
               <i class="fas fa-calendar-check me-2"></i> Book a Consultation
             </a>
           </div>
         </div>
       </div>
     `;
+
+    // Responsive scroll handling: make sure user sees the updated content on all screen sizes
+    if (shouldScroll) {
+      if (window.innerWidth < 992) {
+        serviceDetailContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        const yOffset = -90;
+        const y = serviceDetailContainer.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      }
+    }
   }
 
-  // Initial render
-  const initialKey = getServiceFromUrl();
-  renderService(initialKey);
+  // Initial render based on URL param or hash
+  const initialKey = getServiceFromUrl() || 'shelving';
+  renderService(initialKey, false);
 
-  // Click listeners for sidebar nav
+  // Click & keyboard listeners for sidebar nav
   serviceNavItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+
+    function selectService() {
       const serviceKey = item.getAttribute('data-service');
       const canonicalKey = resolveServiceKey(serviceKey);
-      renderService(canonicalKey);
+      renderService(canonicalKey, true);
       window.history.pushState({ service: canonicalKey }, '', `service-details.html?service=${canonicalKey}`);
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      selectService();
+    });
+
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectService();
+      }
     });
   });
 
   // Popstate listener for back/forward navigation
   window.addEventListener('popstate', (e) => {
     const key = (e.state && e.state.service) ? e.state.service : getServiceFromUrl();
-    renderService(key);
+    renderService(key, false);
   });
 }
 
@@ -1200,7 +1253,134 @@ function initContactForm() {
 
   if (!contactForm || !alertBox) return;
 
+  const nameInput = contactForm.querySelector('#contactName');
+  const emailInput = contactForm.querySelector('#contactEmail');
+  const phoneInput = contactForm.querySelector('#contactPhone');
+  const serviceInput = contactForm.querySelector('#contactService');
+  const messageInput = contactForm.querySelector('#contactMessage');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const phoneError = document.getElementById('phoneError');
+  const serviceError = document.getElementById('serviceError');
+  const messageError = document.getElementById('messageError');
+
   let feedbackTimer = null;
+
+  // Optional URL parameter pre-selection if user navigated from a specific service page
+  const urlParams = new URLSearchParams(window.location.search);
+  const serviceParam = urlParams.get('service');
+  if (serviceParam && serviceInput && !serviceInput.value) {
+    const matchingOpt = Array.from(serviceInput.options).find(opt =>
+      opt.value === serviceParam || opt.value.toLowerCase() === serviceParam.toLowerCase()
+    );
+    if (matchingOpt) {
+      serviceInput.value = matchingOpt.value;
+    }
+  }
+
+  // Keyboard shortcut: Ctrl+Enter or Cmd+Enter in textarea submits consultation form
+  if (messageInput) {
+    messageInput.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        contactForm.requestSubmit();
+      }
+    });
+  }
+
+  // 1. Full Name field typing restriction: strictly accepts name characters only, must NOT accept numbers
+  if (nameInput) {
+    nameInput.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Enter', 'Escape'].includes(e.key)) {
+        return;
+      }
+      // Strictly reject numbers 0-9
+      if (/^[0-9]$/.test(e.key)) {
+        e.preventDefault();
+        nameInput.classList.add('is-invalid');
+        if (nameError) nameError.textContent = 'Numbers are not allowed in the full name field.';
+        return;
+      }
+      // Strictly reject symbols and disallowed characters (only allow letters, spaces, hyphens, apostrophes, and dots)
+      if (e.key.length === 1 && !/^[\p{L}\s'\u2019\-.]+$/u.test(e.key)) {
+        e.preventDefault();
+        nameInput.classList.add('is-invalid');
+        if (nameError) nameError.textContent = 'Only letters, spaces, hyphens, and apostrophes are allowed.';
+        return;
+      }
+    });
+
+    nameInput.addEventListener('input', () => {
+      // Strip any numbers if pasted or entered via autofill
+      if (/\d/.test(nameInput.value)) {
+        const start = nameInput.selectionStart;
+        nameInput.value = nameInput.value.replace(/\d/g, '');
+        if (start !== null) {
+          const newPos = Math.min(start, nameInput.value.length);
+          nameInput.setSelectionRange(newPos, newPos);
+        }
+        nameInput.classList.add('is-invalid');
+        if (nameError) nameError.textContent = 'Numbers are not allowed in the full name field.';
+      }
+    });
+  }
+
+  // 2. Phone field typing restriction: strictly accepts numbers only, must NOT accept letters
+  if (phoneInput) {
+    phoneInput.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Enter', 'Escape'].includes(e.key)) {
+        return;
+      }
+      // Strictly reject letters a-z and A-Z
+      if (/^[a-zA-Z]$/.test(e.key)) {
+        e.preventDefault();
+        phoneInput.classList.add('is-invalid');
+        if (phoneError) phoneError.textContent = 'Letters are not allowed in the phone number field.';
+        return;
+      }
+      // Strictly reject symbols other than valid phone formatting (+, -, space, parentheses)
+      if (e.key.length === 1 && !/^[0-9+\s\-().]$/.test(e.key)) {
+        e.preventDefault();
+        phoneInput.classList.add('is-invalid');
+        if (phoneError) phoneError.textContent = 'Only numbers and standard phone symbols (+, -, parentheses) are allowed.';
+        return;
+      }
+    });
+
+    phoneInput.addEventListener('input', () => {
+      // Strip any letters or disallowed characters if pasted or entered via autofill
+      if (/[a-zA-Z]/.test(phoneInput.value) || /[^0-9+\s\-().]/.test(phoneInput.value)) {
+        const start = phoneInput.selectionStart;
+        phoneInput.value = phoneInput.value.replace(/[a-zA-Z]/g, '').replace(/[^0-9+\s\-().]/g, '');
+        if (start !== null) {
+          const newPos = Math.min(start, phoneInput.value.length);
+          phoneInput.setSelectionRange(newPos, newPos);
+        }
+        phoneInput.classList.add('is-invalid');
+        if (phoneError) phoneError.textContent = 'Letters are not allowed in the phone number field.';
+      }
+    });
+  }
+
+  // Real-time error clearing as user types or changes input
+  [nameInput, emailInput, phoneInput, serviceInput, messageInput].forEach(field => {
+    if (!field) return;
+    const events = ['input', 'change'];
+    events.forEach(evt => {
+      field.addEventListener(evt, () => {
+        if (field.classList.contains('is-invalid')) {
+          field.classList.remove('is-invalid');
+        }
+        if (alertBox.classList.contains('alert-warning')) {
+          alertBox.style.setProperty('display', 'none', 'important');
+          alertBox.className = 'form-feedback-alert hide';
+          alertBox.innerHTML = '';
+        }
+      });
+    });
+  });
 
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -1211,44 +1391,125 @@ function initContactForm() {
       feedbackTimer = null;
     }
 
-    const nameInput = contactForm.querySelector('#contactName');
-    const emailInput = contactForm.querySelector('#contactEmail');
-    const phoneInput = contactForm.querySelector('#contactPhone');
-    const serviceInput = contactForm.querySelector('#contactService');
-    const messageInput = contactForm.querySelector('#contactMessage');
+    // Reset previous validation state
+    [nameInput, emailInput, phoneInput, serviceInput, messageInput].forEach(field => {
+      if (field) {
+        field.classList.remove('is-invalid', 'is-valid');
+      }
+    });
 
-    // Validation
     let isValid = true;
-    let errorMessage = '';
+    let firstErrorMessage = '';
+    let firstInvalidField = null;
 
-    if (!nameInput.value.trim()) {
+    // Helper to flag an invalid field
+    function markInvalid(field, errorEl, msg) {
       isValid = false;
-      errorMessage = 'Please enter your full name.';
-      nameInput.focus();
-    } else if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
-      isValid = false;
-      errorMessage = 'Please enter a valid email address.';
-      emailInput.focus();
-    } else if (!serviceInput.value) {
-      isValid = false;
-      errorMessage = 'Please select a storage service.';
-      serviceInput.focus();
-    } else if (!messageInput.value.trim()) {
-      isValid = false;
-      errorMessage = 'Please provide a brief message or garage dimensions.';
-      messageInput.focus();
+      if (field) field.classList.add('is-invalid');
+      if (errorEl) errorEl.textContent = msg;
+      if (!firstErrorMessage) firstErrorMessage = msg;
+      if (!firstInvalidField) firstInvalidField = field;
     }
 
+    // Helper to flag a valid field
+    function markValid(field) {
+      if (field) field.classList.add('is-valid');
+    }
+
+    // 1. Full Name Validation
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    if (!nameVal) {
+      markInvalid(nameInput, nameError, 'Please enter your full name.');
+    } else if (nameVal.length < 2) {
+      markInvalid(nameInput, nameError, 'Full name must be at least 2 characters.');
+    } else if (/^\d+$/.test(nameVal.replace(/\s+/g, ''))) {
+      markInvalid(nameInput, nameError, 'Full name cannot consist only of numbers.');
+    } else if (/\d/.test(nameVal)) {
+      markInvalid(nameInput, nameError, 'Full name cannot contain numbers.');
+    } else if (!/^[\p{L}\s'\u2019\-.]+$/u.test(nameVal)) {
+      markInvalid(nameInput, nameError, 'Full name contains invalid characters. Please use letters, spaces, hyphens, or apostrophes.');
+    } else if (!/[\p{L}]/u.test(nameVal)) {
+      markInvalid(nameInput, nameError, 'Full name must contain letters.');
+    } else {
+      markValid(nameInput);
+    }
+
+    // 2. Email Address Validation
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    if (!emailVal) {
+      markInvalid(emailInput, emailError, 'Please enter your email address.');
+    } else if (!validateEmail(emailVal)) {
+      markInvalid(emailInput, emailError, 'Please enter a valid email address (e.g. name@example.com).');
+    } else {
+      markValid(emailInput);
+    }
+
+    // 3. Phone Number Validation (Optional field)
+    const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+    if (phoneVal) {
+      if (/[a-zA-Z]/.test(phoneVal)) {
+        markInvalid(phoneInput, phoneError, 'Phone number cannot contain letters.');
+      } else if (!/^\+?[0-9\s\-().]+$/.test(phoneVal)) {
+        markInvalid(phoneInput, phoneError, 'Please enter a valid phone number containing digits and standard formatting symbols only.');
+      } else {
+        const digitsOnly = phoneVal.replace(/\D/g, '');
+        if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+          markInvalid(phoneInput, phoneError, 'Please enter a valid phone number (between 7 and 15 digits).');
+        } else {
+          // Check balanced parentheses if present
+          const openParens = (phoneVal.match(/\(/g) || []).length;
+          const closeParens = (phoneVal.match(/\)/g) || []).length;
+          if (openParens !== closeParens || openParens > 1 || (openParens === 1 && phoneVal.indexOf('(') > phoneVal.indexOf(')'))) {
+            markInvalid(phoneInput, phoneError, 'Please enter a valid phone number with properly formatted parentheses.');
+          } else {
+            markValid(phoneInput);
+          }
+        }
+      }
+    } else {
+      // Optional field: empty is valid
+      if (phoneError) phoneError.textContent = '';
+      if (phoneInput) phoneInput.classList.remove('is-invalid');
+    }
+
+    // 4. Primary Service Interest Validation
+    const serviceVal = serviceInput ? serviceInput.value.trim() : '';
+    if (!serviceVal) {
+      markInvalid(serviceInput, serviceError, 'Please select a primary storage service.');
+    } else {
+      markValid(serviceInput);
+    }
+
+    // 5. Message / Garage Dimensions Validation
+    const msgVal = messageInput ? messageInput.value.trim() : '';
+    if (!msgVal) {
+      markInvalid(messageInput, messageError, 'Please describe your garage size or storage goals.');
+    } else {
+      markValid(messageInput);
+    }
+
+    // Prevent submission and show visible accessible error alert
     if (!isValid) {
       alertBox.className = 'form-feedback-alert show alert alert-warning';
-      alertBox.innerHTML = `<i class="fas fa-exclamation-triangle mt-1"></i> <div><span>${errorMessage}</span></div>`;
+      alertBox.innerHTML = `
+        <i class="fas fa-exclamation-triangle mt-1"></i>
+        <div>
+          <strong>Please correct the following:</strong>
+          <p class="mb-0 small">${firstErrorMessage}</p>
+        </div>
+      `;
       alertBox.style.setProperty('display', 'flex', 'important');
+      if (firstInvalidField) {
+        firstInvalidField.focus();
+      }
       return;
     }
 
-    // Success feedback (Client-side demo verification state)
-    const selectedServiceText = serviceInput.options[serviceInput.selectedIndex] ? serviceInput.options[serviceInput.selectedIndex].text : 'Selected Service';
-    const submittedName = nameInput.value.trim();
+    // Success feedback
+    const selectedServiceText = (serviceInput && serviceInput.options[serviceInput.selectedIndex])
+      ? serviceInput.options[serviceInput.selectedIndex].text
+      : 'Selected Service';
+    const submittedName = nameVal;
 
     alertBox.className = 'form-feedback-alert show alert alert-success';
     alertBox.innerHTML = `
@@ -1261,20 +1522,27 @@ function initContactForm() {
     alertBox.style.setProperty('display', 'flex', 'important');
     contactForm.reset();
 
-    // Automatically hide/remove success notification after exactly 5 seconds (5000ms)
+    // Clean validation classes on form reset
+    [nameInput, emailInput, phoneInput, serviceInput, messageInput].forEach(field => {
+      if (field) field.classList.remove('is-valid', 'is-invalid');
+    });
+
+    // Automatically hide/remove success notification after 6 seconds
     feedbackTimer = setTimeout(() => {
       alertBox.style.setProperty('display', 'none', 'important');
       alertBox.style.display = 'none';
       alertBox.className = 'form-feedback-alert hide';
       alertBox.innerHTML = '';
       feedbackTimer = null;
-    }, 5000);
+    }, 6000);
   });
 }
 
 function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+  if (!email || typeof email !== 'string') return false;
+  const trimmed = email.trim();
+  const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+  return re.test(trimmed);
 }
 
 /* ==========================================================================

@@ -14,7 +14,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-page="contact">
 
   <!-- ==========================================================================
        NAVBAR (SINGLE UNIFIED NAVBAR)
@@ -24,7 +24,7 @@
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
-          <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          <span>GARAGE<span class="brand-org">ORG</span></span>
         </a>
 
         <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -46,12 +46,13 @@
                 Home
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
-                <li><a class="dropdown-item" href="index-2.html">Home 2</a></li>
+                <li><a class="dropdown-item" href="index.html">Garage Storage Solutions</a></li>
+                <li><a class="dropdown-item" href="index-2.html">Garage Transformations</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
@@ -81,11 +82,9 @@
     <div class="container">
       <div class="inner-hero-content text-center">
         <h1 class="inner-hero-title">Contact Us</h1>
-        <div class="breadcrumb-wrap">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-active">Contact Us</span>
-        </div>
+        <p class="inner-hero-desc">
+          Tell us about your garage storage goals, and our team will help you explore the right solution.
+        </p>
       </div>
     </div>
   </section>
@@ -109,15 +108,18 @@
               <div class="row g-3">
                 <div class="col-md-6">
                   <label for="contactName" class="form-label">Full Name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="contactName" placeholder="e.g. John Miller" required>
+                  <input type="text" class="form-control" id="contactName" placeholder="e.g. John Miller" required autocomplete="name" pattern="^[^\d]+$" title="Full name cannot contain numbers">
+                  <div class="invalid-feedback" id="nameError">Please enter a valid full name containing letters (names cannot contain only numbers).</div>
                 </div>
                 <div class="col-md-6">
                   <label for="contactEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" id="contactEmail" placeholder="name@example.com" required>
+                  <input type="email" class="form-control" id="contactEmail" placeholder="name@example.com" required autocomplete="email">
+                  <div class="invalid-feedback" id="emailError">Please enter a valid email address.</div>
                 </div>
                 <div class="col-md-6">
                   <label for="contactPhone" class="form-label">Phone Number (Optional)</label>
-                  <input type="tel" class="form-control" id="contactPhone" placeholder="(555) 000-0000">
+                  <input type="tel" class="form-control" id="contactPhone" placeholder="(555) 000-0000" inputmode="tel" autocomplete="tel" pattern="^[0-9+\s\-().]*$" title="Phone number must only contain numbers and standard phone symbols">
+                  <div class="invalid-feedback" id="phoneError">Please enter a valid phone number with digits only (e.g. (555) 000-0000).</div>
                 </div>
                 <div class="col-md-6">
                   <label for="contactService" class="form-label">Primary Service Interest <span class="text-danger">*</span></label>
@@ -132,11 +134,16 @@
                     <option value="seasonal">Seasonal Item Storage</option>
                     <option value="complete">Complete Garage Transformation</option>
                     <option value="planning">Garage Space Planning / 3D CAD</option>
+                    <option value="flooring">Polyaspartic Floor Coating</option>
+                    <option value="motorized">Motorized Overhead Storage Lift</option>
+                    <option value="garden">Garden & Yard Tool Station</option>
                   </select>
+                  <div class="invalid-feedback" id="serviceError">Please select a primary storage service.</div>
                 </div>
                 <div class="col-12">
                   <label for="contactMessage" class="form-label">Garage Dimensions & Goals <span class="text-danger">*</span></label>
                   <textarea class="form-control" id="contactMessage" rows="5" placeholder="Describe your garage size (e.g. 2-car, 20x22 ft), what items you need to store, or any obstacle concerns..." required></textarea>
+                  <div class="invalid-feedback" id="messageError">Please describe your garage size or storage goals.</div>
                 </div>
                 <div class="col-12 mt-4">
                   <button type="submit" class="btn btn-primary btn-lg w-100">
@@ -151,9 +158,33 @@
         <!-- Col 2: Verified Service & Consultation Info -->
         <div class="col-lg-5">
           <div class="d-flex flex-column gap-4">
+            <!-- Verified Business Address & Location Card -->
+            <div class="p-4 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); border-radius: var(--radius-lg);">
+              <h4 class="mb-3"><i class="fas fa-building me-2" style="color:var(--brand-accent)"></i> Main Office & Logistics</h4>
+              <p class="text-muted small mb-3">Our primary fabrication facility, design studio, and dispatch depot:</p>
+              
+              <div class="d-flex align-items-start gap-3 mb-3">
+                <i class="fas fa-location-dot mt-1" style="color: var(--brand-accent); font-size: 1.1rem;"></i>
+                <div>
+                  <strong>GARAGEORG Solutions</strong><br>
+                  <span class="text-muted">4820 Enterprise Way, Suite 104<br>Industrial Parkway District</span>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <i class="fas fa-phone" style="color: var(--brand-accent);"></i>
+                <a href="tel:5553829471" class="text-decoration-none text-muted"><strong>(555) 382-9471</strong></a>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-envelope" style="color: var(--brand-accent);"></i>
+                <a href="mailto:consultations@garageorg.com" class="text-decoration-none text-muted">consultations@garageorg.com</a>
+              </div>
+            </div>
+
             <!-- Operating Hours & Consultation Structure -->
             <div class="p-4 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); border-radius: var(--radius-lg);">
-              <h4 class="mb-3"><i class="fas fa-calendar-check me-2" style="color:var(--text-heading)"></i> Consultation Schedule</h4>
+              <h4 class="mb-3"><i class="fas fa-calendar-check me-2" style="color:var(--brand-accent)"></i> Consultation Schedule</h4>
               <p class="text-muted small mb-3">Our spatial planning consultations are conducted Monday through Saturday.</p>
               
               <div class="d-flex justify-content-between py-2 border-bottom" style="border-color: var(--border-color) !important;">
@@ -170,20 +201,9 @@
               </div>
             </div>
 
-            <!-- Service Coverage & Types -->
-            <div class="p-4 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); border-radius: var(--radius-lg);">
-              <h4 class="mb-3"><i class="fas fa-map-location-dot me-2" style="color:var(--text-heading)"></i> Service Coverage</h4>
-              <p class="text-muted small mb-3">We specialize in residential garage space planning, modular shelving fabrication, and heavy-duty ceiling rack installations across single-car, two-car, and multi-bay properties.</p>
-              <ul class="list-unstyled small text-muted mb-0">
-                <li class="mb-2"><i class="fas fa-check me-2" style="color:var(--text-heading)"></i> On-site spatial audits & laser measurements</li>
-                <li class="mb-2"><i class="fas fa-check me-2" style="color:var(--text-heading)"></i> Remote 3D CAD design reviews</li>
-                <li class="mb-0"><i class="fas fa-check me-2" style="color:var(--text-heading)"></i> Turnkey residential installations</li>
-              </ul>
-            </div>
-
             <!-- Next Steps Information -->
             <div class="p-4 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); border-radius: var(--radius-lg);">
-              <h4 class="mb-3"><i class="fas fa-list-check me-2" style="color:var(--text-heading)"></i> What Happens Next?</h4>
+              <h4 class="mb-3"><i class="fas fa-list-check me-2" style="color:var(--brand-accent)"></i> What Happens Next?</h4>
               <ol class="small text-muted mb-0 ps-3">
                 <li class="mb-2">We review your submitted garage dimensions and storage goals.</li>
                 <li class="mb-2">A specialist contacts you to confirm vehicle clearances and wall stud details.</li>
@@ -202,15 +222,15 @@
   <section class="section-py bg-surface border-top" style="border-color: var(--border-color) !important;">
     <div class="container">
       <div class="section-header text-center mb-4">
-        <span class="section-subtitle">Service Coverage Area</span>
-        <h2 class="section-title">Our Service Coverage</h2>
-        <p class="text-muted">On-site garage space audits, laser measurements, and professional installation services across the greater metropolitan area.</p>
+        <span class="section-subtitle">Verified Location & Service Reach</span>
+        <h2 class="section-title">Headquarters & Service Coverage Area</h2>
+        <p class="text-muted">Located at 4820 Enterprise Way, Suite 104, Industrial Parkway District with mobile audit units dispatched daily.</p>
       </div>
 
       <div class="map-container mb-4">
         <iframe
-          title="Garage Organization Service Coverage Map"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-74.05%2C40.68%2C-73.90%2C40.82&amp;layer=mapnik"
+          title="GARAGEORG Headquarters & Service Coverage Map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-74.05%2C40.68%2C-73.90%2C40.82&amp;layer=mapnik&amp;marker=40.75%2C-73.975"
           allowfullscreen
           loading="lazy">
         </iframe>
@@ -219,23 +239,23 @@
       <div class="row g-3 text-center">
         <div class="col-md-4">
           <div class="p-3 rounded border h-100" style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <i class="fas fa-location-dot mb-2" style="font-size: 1.3rem; color: var(--text-heading)"></i>
+            <i class="fas fa-building mb-2" style="font-size: 1.3rem; color: var(--brand-accent)"></i>
             <h5 class="h6 mb-1">Central Metro Hub</h5>
-            <p class="small text-muted mb-0">Fabrication workshop & logistics dispatch</p>
+            <p class="small text-muted mb-0">4820 Enterprise Way, Suite 104, Industrial Parkway District</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="p-3 rounded border h-100" style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <i class="fas fa-truck-ramp-box mb-2" style="font-size: 1.3rem; color: var(--text-heading)"></i>
+            <i class="fas fa-truck-ramp-box mb-2" style="font-size: 1.3rem; color: var(--brand-accent)"></i>
             <h5 class="h6 mb-1">Mobile Audit Teams</h5>
-            <p class="small text-muted mb-0">Direct-to-home laser scanning & measurement</p>
+            <p class="small text-muted mb-0">Direct-to-home laser scanning & spatial measurements</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="p-3 rounded border h-100" style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <i class="fas fa-shield-check mb-2" style="font-size: 1.3rem; color: var(--text-heading)"></i>
-            <h5 class="h6 mb-1">Turnkey Installations</h5>
-            <p class="small text-muted mb-0">Fully equipped residential installation crews</p>
+            <i class="fas fa-phone-volume mb-2" style="font-size: 1.3rem; color: var(--brand-accent)"></i>
+            <h5 class="h6 mb-1">Direct Inquiries</h5>
+            <p class="small text-muted mb-0">(555) 382-9471 &bull; consultations@garageorg.com</p>
           </div>
         </div>
       </div>
@@ -294,9 +314,9 @@
     <div class="container">
       <div class="row g-4 g-lg-5">
         <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="footer-brand-title" aria-label="GarageOrg Home">
-            <img src="assets/images/favicon.svg" alt="GarageOrg" style="width: 32px; height: 32px;">
-            <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          <a class="footer-brand" href="index.html" aria-label="GarageOrg Home">
+            <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
+            <span>GARAGE<span class="brand-org">ORG</span></span>
           </a>
           <p class="footer-desc">
             Specialists in residential garage optimization, heavy-duty modular shelving, steel cabinetry, slatwall tool storage, and overhead ceiling platforms.
@@ -335,6 +355,7 @@
             <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
             <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
             <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+            <li><a href="gallery.html"><i class="fas fa-chevron-right fa-xs"></i> Gallery</a></li>
             <li><a href="pricing.html"><i class="fas fa-chevron-right fa-xs"></i> Pricing</a></li>
             <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
             <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>

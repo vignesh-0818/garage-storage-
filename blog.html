@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body data-page="blog">
 
   <!-- ==========================================================================
        NAVBAR
@@ -27,7 +27,7 @@
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
-          <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          <span>GARAGE<span class="brand-org">ORG</span></span>
         </a>
 
         <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -51,12 +51,13 @@
                 Home
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
-                <li><a class="dropdown-item" href="index-2.html">Home 2</a></li>
+                <li><a class="dropdown-item" href="index.html">Garage Storage Solutions</a></li>
+                <li><a class="dropdown-item" href="index-2.html">Garage Transformations</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
             <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -88,11 +89,9 @@
     <div class="container">
       <div class="inner-hero-content text-center">
         <h1 class="inner-hero-title">Blog</h1>
-        <div class="breadcrumb-wrap">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-active">Blog</span>
-        </div>
+        <p class="inner-hero-desc">
+          Discover practical tips and ideas for garage organization, smarter storage, and making better use of your available space.
+        </p>
       </div>
     </div>
   </section>
@@ -305,52 +304,72 @@
         <!-- Tip 1: Vertical Space -->
         <div class="col-md-6 col-lg-3">
           <div class="org-tip-card">
-            <div class="org-tip-icon">
-              <i class="fas fa-layer-group"></i>
+            <div class="org-tip-img-wrap">
+              <img src="assets/images/service-1-shelving.jpg" alt="Wall mounted vertical garage shelving" loading="lazy">
             </div>
-            <h4 class="org-tip-title">Use Vertical Space</h4>
-            <p class="org-tip-text">
-              Make use of wall-mounted shelves, slatwall systems, and hooks to free up floor space and keep high-traffic areas completely unobstructed.
-            </p>
+            <div class="org-tip-body">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-layer-group text-brand" style="color: var(--brand-accent);"></i>
+                <h4 class="org-tip-title mb-0">Use Vertical Space</h4>
+              </div>
+              <p class="org-tip-text">
+                Make use of wall-mounted shelves, slatwall systems, and hooks to free up floor space and keep high-traffic corridors unobstructed.
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Tip 2: Category Organization -->
         <div class="col-md-6 col-lg-3">
           <div class="org-tip-card">
-            <div class="org-tip-icon">
-              <i class="fas fa-boxes-stacked"></i>
+            <div class="org-tip-img-wrap">
+              <img src="assets/images/tool-organizer-slatwall.jpg" alt="Categorized tool storage with hooks and bins" loading="lazy">
             </div>
-            <h4 class="org-tip-title">Organize by Category</h4>
-            <p class="org-tip-text">
-              Keep tools, sports equipment, seasonal items, and frequently used belongings in designated areas for swift access and simple returns.
-            </p>
+            <div class="org-tip-body">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-boxes-stacked text-brand" style="color: var(--brand-accent);"></i>
+                <h4 class="org-tip-title mb-0">Organize by Category</h4>
+              </div>
+              <p class="org-tip-text">
+                Keep tools, sports gear, automotive items, and household supplies in labeled, dedicated zones for swift access and simple returns.
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Tip 3: Overhead Storage -->
         <div class="col-md-6 col-lg-3">
           <div class="org-tip-card">
-            <div class="org-tip-icon">
-              <i class="fas fa-arrow-up-from-bracket"></i>
+            <div class="org-tip-img-wrap">
+              <img src="assets/images/home-feat-overhead.jpg" alt="Overhead ceiling racks for seasonal gear" loading="lazy">
             </div>
-            <h4 class="org-tip-title">Make Use of Overhead Storage</h4>
-            <p class="org-tip-text">
-              Store suitable seasonal and infrequently used items on properly installed overhead racks to capture unused ceiling cubic footage.
-            </p>
+            <div class="org-tip-body">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-arrow-up-from-bracket text-brand" style="color: var(--brand-accent);"></i>
+                <h4 class="org-tip-title mb-0">Overhead Storage</h4>
+              </div>
+              <p class="org-tip-text">
+                Store seasonal holiday boxes and travel luggage on properly anchored ceiling racks to capture unused cubic footage above cars.
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Tip 4: Plan Before Installing -->
         <div class="col-md-6 col-lg-3">
           <div class="org-tip-card">
-            <div class="org-tip-icon">
-              <i class="fas fa-ruler-combined"></i>
+            <div class="org-tip-img-wrap">
+              <img src="assets/images/service-9-planning.jpg" alt="Garage space planning and laser dimension audit" loading="lazy">
             </div>
-            <h4 class="org-tip-title">Plan Before Installing Storage</h4>
-            <p class="org-tip-text">
-              Measure the available space and consider door clearance, walking paths, and vehicle parking before choosing storage systems.
-            </p>
+            <div class="org-tip-body">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fas fa-ruler-combined text-brand" style="color: var(--brand-accent);"></i>
+                <h4 class="org-tip-title mb-0">Plan Layout First</h4>
+              </div>
+              <p class="org-tip-text">
+                Measure available dimensions and consider vehicle door clearance, breaker panels, and walking paths before choosing hardware.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -470,7 +489,7 @@
           Explore GARAGEORG's full range of garage storage services or book a consultation today for a personalized organization plan tailored to your space, vehicles, and storage needs.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="contact.html" class="btn btn-white btn-lg">
+          <a href="contact.html" class="btn btn-primary btn-lg">
             <i class="fas fa-calendar-check me-2"></i> Book a Consultation
           </a>
           <a href="services.html" class="btn btn-outline-light btn-lg">
@@ -488,9 +507,9 @@
     <div class="container">
       <div class="row g-4 g-lg-5">
         <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="footer-brand-title" aria-label="GarageOrg Home">
-            <img src="assets/images/favicon.svg" alt="GarageOrg" style="width: 32px; height: 32px;">
-            <span>GARAGE<span style="color: var(--warm-gray);">ORG</span></span>
+          <a class="footer-brand" href="index.html" aria-label="GarageOrg Home">
+            <img src="assets/images/favicon.svg" alt="GarageOrg Logo" class="brand-logo-img">
+            <span>GARAGE<span class="brand-org">ORG</span></span>
           </a>
           <p class="footer-desc">
             Specialists in residential garage optimization, heavy-duty modular shelving, steel cabinetry, slatwall tool
@@ -532,6 +551,7 @@
             <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
             <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
             <li><a href="services.html"><i class="fas fa-chevron-right fa-xs"></i> Services</a></li>
+            <li><a href="gallery.html"><i class="fas fa-chevron-right fa-xs"></i> Gallery</a></li>
             <li><a href="pricing.html"><i class="fas fa-chevron-right fa-xs"></i> Pricing</a></li>
             <li><a href="blog.html"><i class="fas fa-chevron-right fa-xs"></i> Blog</a></li>
             <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>

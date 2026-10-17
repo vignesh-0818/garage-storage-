@@ -6,7 +6,7 @@
   <rect x="18" y="28" width="28" height="24" rx="2" fill="none" stroke="#FFFFFF" stroke-width="3"/>
   <line x1="18" y1="36" x2="46" y2="36" stroke="#78716C" stroke-width="2.5" stroke-linecap="round"/>
   <line x1="18" y1="44" x2="46" y2="44" stroke="#78716C" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Accent Box storage on shelf -->
+  <!-- Accent Box storage on shelf (Brand Accent) -->
   <rect x="22" y="38.5" width="8" height="4" rx="1" fill="#FFFFFF"/>
-  <rect x="34" y="38.5" width="8" height="4" rx="1" fill="#78716C"/>
+  <rect x="34" y="38.5" width="8" height="4" rx="1" fill="#EA580C"/>
 </svg>
